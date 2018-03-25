@@ -6,9 +6,14 @@ Behold My Awesome Project!
 
 :License: MIT
 
-kevinqq/cookiecutter_django               v0          488MB
-docker-compose -f local.yml up
-docker-compose -f local.yml run --rm django sh
+Notes
+--------
+::
+    $ kevinqq/cookiecutter_django               v0          488MB
+    
+    $ docker-compose -f local.yml up
+    
+    $ docker-compose -f local.yml run --rm django sh
 
 
 Settings
