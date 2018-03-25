@@ -1,0 +1,9 @@
+{% extends "./base.html" %}
+
+{% block title %}{{ title }} | Polls site 后台{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">Polls 后台 administration</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
