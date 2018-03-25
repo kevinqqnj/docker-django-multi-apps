@@ -8,6 +8,7 @@ Behold My Awesome Project!
 
 Notes
 --------
+
 ::
     $ kevinqq/cookiecutter_django               v0          488MB
     
