@@ -4,10 +4,32 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 from django.conf import settings
+from rest_framework import viewsets
+from rest_framework.permissions import AllowAny, IsAuthenticated, IsAuthenticatedOrReadOnly
 
 from .models import Choice, Question
+from .serializers import QuestionSerializer, ChoiceSerializer
+from config.permissions import IsUserOrReadOnly
 
-app_name = 'cmct'
+# app_name = 'cmct'
+app_name = __package__.split('.')[-1]
+# print(__file__, __package__) # /app/polls/cmct/views.py polls.cmct
+
+class QuestionViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = Question.objects.all().order_by('-pub_date')
+    serializer_class = QuestionSerializer
+    permission_classes = (IsAuthenticated,)
+
+class ChoiceViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = Choice.objects.all()
+    serializer_class = ChoiceSerializer
+    permission_classes = (IsUserOrReadOnly,)
 
 class IndexView(generic.ListView):
     template_name = f'{app_name}/index.html'
