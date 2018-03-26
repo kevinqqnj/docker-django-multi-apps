@@ -2,6 +2,12 @@
 Base settings to build other settings files upon.
 """
 
+APP_URL = {
+    'ob': 'https://ourbits.org',
+    'cmct': 'https://hdcmct.net',
+    }
+
+
 import environ
 
 ROOT_DIR = environ.Path(__file__) - 3  # (polls/config/settings/base.py - 3 = polls/)
