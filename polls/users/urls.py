@@ -1,6 +1,10 @@
 from django.conf.urls import url
 
 from . import views
+from config.urls import router
+
+router.register(r'users', views.UserViewSet)
+router.register(r'groups', views.GroupViewSet)
 
 app_name = 'users'
 urlpatterns = [

@@ -8,15 +8,10 @@ from django.views import defaults as default_views
 from django.views.generic.base import RedirectView
 from rest_framework.routers import DefaultRouter
 from rest_framework.authtoken import views as rest_views
-from polls.users.views import UserViewSet, GroupViewSet
-from polls.cmct.views import QuestionViewSet, ChoiceViewSet
 
 
+# each apps will use this rest_frameowrk router
 router = DefaultRouter()
-router.register(r'cmct/question', QuestionViewSet)
-router.register(r'cmct/choice', ChoiceViewSet)
-router.register(r'users', UserViewSet)
-router.register(r'groups', GroupViewSet)
 
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name='home'),
@@ -36,7 +31,6 @@ urlpatterns = [
     path('api/v1/', include(router.urls)),
     path('api-token-auth/', rest_views.obtain_auth_token),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-
     # the 'api-root' from django rest-frameworks default router
     # http://www.django-rest-framework.org/api-guide/routers/#defaultrouter
     re_path(r'^api', RedirectView.as_view(url=reverse_lazy('api-root'), permanent=False)),
