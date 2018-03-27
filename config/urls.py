@@ -26,7 +26,7 @@ urlpatterns = [
 
     # Your stuff: custom urls includes go here
     url(r'^cmct/', include('polls.cmct.urls', namespace='cmct')),
-    url(r'^snippets/', include('polls.snippets.urls')),
+    url(r'^snippets/', include('polls.snippets.urls', namespace='snippets')),
 
     # REST-framework
     path('api/v1/', include(router.urls)),

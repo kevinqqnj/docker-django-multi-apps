@@ -7,15 +7,10 @@ from . import views
 
 app_name = views.app_name
 
-# rest_framework, url is like: http://localhost:8000/api/v1/cmct/question/
-# router.register(r'cmct/question', views.QuestionViewSet)
-# router.register(r'cmct/choice', views.ChoiceViewSet)
+router.register(r'snippets', views.SnippetViewSet)
 
+# The API URLs are now determined automatically by the router.
+# Additionally, we include the login URLs for the browsable API.
 urlpatterns = [
-    # url(r'^$', views.snippet_list),
-    # url(r'^(?P<pk>[0-9]+)$', views.snippet_detail),
-    path('', views.SnippetList.as_view(), name='index'),
-    path('<int:pk>/', views.SnippetDetail.as_view(), name='detail'),
+    url(r'^', include(router.urls)),
 ]
-
-urlpatterns = format_suffix_patterns(urlpatterns)

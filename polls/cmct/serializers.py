@@ -10,9 +10,11 @@ class QuestionSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class ChoiceSerializer(serializers.HyperlinkedModelSerializer):
+    question = serializers.ReadOnlyField(source='question.question_text')
+
     class Meta:
         model = Choice
-        fields = ('url', 'choice_text', 'votes')
+        fields = ('url', 'question', 'choice_text', 'votes')
 
 # class UserSerializer(serializers.HyperlinkedModelSerializer):
 #     class Meta:
