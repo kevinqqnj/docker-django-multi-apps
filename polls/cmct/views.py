@@ -13,7 +13,8 @@ from config.permissions import IsUserOrReadOnly
 
 # app_name = 'cmct'
 app_name = __package__.split('.')[-1]
-# print(__file__, __package__) # /app/polls/cmct/views.py polls.cmct
+print(__file__, __package__, __name__)
+# /app/polls/cmct/views.py      polls.cmct      polls.cmct.views
 
 class QuestionViewSet(viewsets.ModelViewSet):
     """
@@ -29,7 +30,7 @@ class ChoiceViewSet(viewsets.ModelViewSet):
     """
     queryset = Choice.objects.all()
     serializer_class = ChoiceSerializer
-    permission_classes = (IsUserOrReadOnly,)
+    permission_classes = (IsAuthenticatedOrReadOnly,)
 
 class IndexView(generic.ListView):
     template_name = f'{app_name}/index.html'

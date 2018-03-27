@@ -3,7 +3,7 @@ Base settings to build other settings files upon.
 """
 
 APP_URL = {
-    'ob': 'https://ourbits.org',
+    'ourbits': 'https://ourbits.org',
     'cmct': 'https://hdcmct.net',
     }
 
