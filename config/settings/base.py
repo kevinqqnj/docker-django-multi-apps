@@ -5,6 +5,7 @@ Base settings to build other settings files upon.
 APP_URL = {
     'ourbits': 'https://ourbits.org',
     'cmct': 'https://hdcmct.net',
+    'snippets': 'http://www.django-rest-framework.org/tutorial'
     }
 
 
@@ -76,8 +77,9 @@ THIRD_PARTY_APPS = [
 ]
 LOCAL_APPS = [
     'polls.users.apps.UsersConfig',
-    'polls.cmct.apps.CmctConfig',
     # Your stuff: custom apps go here
+    'polls.cmct.apps.CmctConfig',
+    'polls.snippets.apps.CmctConfig',   # http://www.django-rest-framework.org/tutorial/1-serialization/#tutorial-1-serialization
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
