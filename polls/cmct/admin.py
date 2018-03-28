@@ -2,7 +2,7 @@ from django import forms
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as AuthUserAdmin
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
-from .models import Question, Choice
+from .models import Question, Choice, Seed, Assign, Accept, Secure
 
 
 class ChoiceInline(admin.TabularInline):
@@ -20,4 +20,7 @@ class QuestionAdmin(admin.ModelAdmin):
     search_fields = ['question_text']
 
 admin.site.register(Question, QuestionAdmin)
-admin.site.register(Choice)
+admin.site.register(Seed)
+admin.site.register(Assign)
+admin.site.register(Accept)
+admin.site.register(Secure)
